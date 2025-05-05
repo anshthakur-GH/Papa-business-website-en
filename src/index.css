@@ -1,0 +1,190 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    @apply bg-dark text-dark-text font-poppins overflow-x-hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-blue rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue-600;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-dark-blue text-white px-6 py-3 rounded-md font-medium transition-all
+           hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/20 
+           active:scale-95 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply bg-dark-gold text-black px-6 py-3 rounded-md font-medium transition-all
+           hover:bg-yellow-500 hover:shadow-lg hover:shadow-yellow-500/20 
+           active:scale-95 cursor-pointer;
+  }
+  
+  .section-heading {
+    @apply text-4xl font-bold mb-6 relative inline-block;
+  }
+  
+  .section-heading::after {
+    @apply content-[''] absolute bottom-0 left-0 w-1/2 h-1 bg-dark-gold;
+  }
+
+  .card {
+    @apply bg-dark-secondary rounded-lg p-6 shadow-lg transition-transform hover:translate-y-[-5px];
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-dark-gold via-yellow-400 to-dark-gold animate-gradient-shift;
+  }
+
+  .nav-link {
+    @apply relative px-3 py-2 text-dark-text hover:text-white transition-colors;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-dark-gold transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .active-nav-link {
+    @apply text-white;
+  }
+
+  .active-nav-link::after {
+    @apply w-full bg-dark-gold;
+  }
+}
+
+/* 3D and Animation Classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.tilt-element {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.parallax-element {
+  will-change: transform;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hero animation */
+@keyframes heroReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-reveal {
+  opacity: 0;
+  animation: heroReveal 0.8s forwards;
+}
+
+.hero-reveal:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.hero-reveal:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.hero-reveal:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.hero-reveal:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+/* Custom cursors */
+.custom-cursor {
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
